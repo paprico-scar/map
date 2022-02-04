@@ -6,30 +6,14 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1258</width>
+    <height>647</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>big map</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QFrame" name="map">
-    <property name="geometry">
-     <rect>
-      <x>70</x>
-      <y>30</y>
-      <width>451</width>
-      <height>451</height>
-     </rect>
-    </property>
-    <property name="frameShape">
-     <enum>QFrame::StyledPanel</enum>
-    </property>
-    <property name="frameShadow">
-     <enum>QFrame::Raised</enum>
-    </property>
-   </widget>
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
@@ -46,7 +30,7 @@
    <widget class="QLineEdit" name="coord_x">
     <property name="geometry">
      <rect>
-      <x>670</x>
+      <x>700</x>
       <y>10</y>
       <width>113</width>
       <height>20</height>
@@ -56,7 +40,7 @@
    <widget class="QLineEdit" name="coord_y">
     <property name="geometry">
      <rect>
-      <x>670</x>
+      <x>700</x>
       <y>50</y>
       <width>113</width>
       <height>20</height>
@@ -68,12 +52,12 @@
      <rect>
       <x>650</x>
       <y>10</y>
-      <width>16</width>
-      <height>16</height>
+      <width>61</width>
+      <height>21</height>
      </rect>
     </property>
     <property name="text">
-     <string>x</string>
+     <string>Широта</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
@@ -81,12 +65,12 @@
      <rect>
       <x>650</x>
       <y>50</y>
-      <width>16</width>
+      <width>51</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>y</string>
+     <string>Долгота</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4">
@@ -105,14 +89,14 @@
    <widget class="QLineEdit" name="spn">
     <property name="geometry">
      <rect>
-      <x>670</x>
+      <x>700</x>
       <y>110</y>
       <width>113</width>
       <height>20</height>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="butt">
     <property name="geometry">
      <rect>
       <x>600</x>
@@ -125,13 +109,39 @@
      <string>Найти</string>
     </property>
    </widget>
+   <widget class="QLabel" name="map">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>40</y>
+      <width>451</width>
+      <height>451</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>TextLabel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>620</x>
+      <y>110</y>
+      <width>71</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Формат x,x</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1258</width>
      <height>21</height>
     </rect>
    </property>
