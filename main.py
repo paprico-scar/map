@@ -23,16 +23,27 @@ class Map(QMainWindow):
     def __init__(self):
         super(Map, self).__init__()
         uic.loadUi('widget.ui', self)
-        self.butt.clicked.connect(self.show_map)
+        self.spnn = ''
+        self.lll = ''
+        self.butt.clicked.connect(self.first_show_map)
+        self.up.clicked.connect(self.do_up)
 
-    def show_map(self):
-        ll = ['ll', self.coord_x.text() + ',' + self.coord_y.text()]
-        spn = ['spn', self.spn.text()]
-        my_map = zapros(ll, spn)
+    def first_show_map(self):
+        self.spnn = ['spn', self.spn.text]
+        self.lll = ['ll', self.coord_x.text + ',' + self.coord_y.text]
+        if self.spnn[1] == '':
+            self.spnn = ['spn', '1,1']
+        my_map = zapros(self.lll, self.spnn)
         im = Image.open(BytesIO(my_map.content))
         im.save('map.png')
         pixmap = QPixmap('map.png')
         self.map.setPixmap(pixmap)
+
+    def do_up(self):
+        new_spnn = [float(i) for i in self.spnn[1].split(',')]
+        new_spnn = [str(i - 0.1) for i in new_spnn]
+        new_spnn = ','.join(new_spnn)
+        self.spnn = ['spn', new_spnn]
 
 
 if __name__ == '__main__':
