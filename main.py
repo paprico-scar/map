@@ -26,8 +26,12 @@ class Map(QMainWindow):
         self.spnn = ''
         self.lll = ''
         self.butt.clicked.connect(self.first_show_map)
+        self.plus.clicked.connect(self.do_plus)
+        self.minus.clicked.connect(self.do_minus)
         self.up.clicked.connect(self.do_up)
         self.down.clicked.connect(self.do_down)
+        self.left.clicked.connect(self.do_left)
+        self.right.clicked.connect(self.do_right)
 
     def first_show_map(self):
         self.spnn = ['spn', self.spn.text()]
@@ -49,20 +53,48 @@ class Map(QMainWindow):
         pixmap = QPixmap('map.png')
         self.map.setPixmap(pixmap)
 
-    def do_up(self):
+    def do_plus(self):
         new_spnn = [float(i) for i in self.spnn[1].split(',')]
-        if new_spnn[1] - 0.05 > 0:
-            new_spnn = [str(i - 0.05) for i in new_spnn]
+        if new_spnn[1] - 0.15 > 0:
+            new_spnn = [str(i - 0.15) for i in new_spnn]
             new_spnn = ','.join(new_spnn)
             self.spnn = ['spn', new_spnn]
         self.show_map()
 
-    def do_down(self):
+    def do_minus(self):
         new_spnn = [float(i) for i in self.spnn[1].split(',')]
-        if new_spnn[1] + 0.05 > 0:
-            new_spnn = [str(i + 0.05) for i in new_spnn]
+        if new_spnn[1] + 0.15 > 0:
+            new_spnn = [str(i + 0.15) for i in new_spnn]
             new_spnn = ','.join(new_spnn)
             self.spnn = ['spn', new_spnn]
+        self.show_map()
+
+    def do_up(self):
+        new_lll = [float(i) for i in self.lll[1].split(',')]
+        if new_lll[1] + 0.5 < 85:
+            new_lll = ','.join([str(new_lll[0]), str(new_lll[1] + 0.5)])
+            self.lll = ['ll', new_lll]
+        self.show_map()
+
+    def do_down(self):
+        new_lll = [float(i) for i in self.lll[1].split(',')]
+        if new_lll[1] - 0.5 > -85:
+            new_lll = ','.join([str(new_lll[0]), str(new_lll[1] - 0.5)])
+            self.lll = ['ll', new_lll]
+        self.show_map()
+
+    def do_left(self):
+        new_lll = [float(i) for i in self.lll[1].split(',')]
+        if new_lll[0] - 0.5 > -179:
+            new_lll = ','.join([str(new_lll[0] - 0.5), str(new_lll[1])])
+            self.lll = ['ll', new_lll]
+        self.show_map()
+
+    def do_right(self):
+        new_lll = [float(i) for i in self.lll[1].split(',')]
+        if new_lll[0] + 0.5 < 179:
+            new_lll = ','.join([str(new_lll[0] + 0.5), str(new_lll[1])])
+            self.lll = ['ll', new_lll]
         self.show_map()
 
 
